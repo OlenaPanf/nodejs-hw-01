@@ -1,6 +1,5 @@
 import * as fs from 'node:fs/promises';
-import { PATH_DB } from '../contacts/contacts.js';
-//const { PATH_DB } = require('../contacts/contacts.js');
+import { PATH_DB } from '../constants/contacts.js';
 import { createFakeContact } from '../utils/createFakeContact.js';
 
 const addOneContact = () => {

@@ -6,7 +6,6 @@ const generateContacts = (number) => {
   fs.readFile(PATH_DB, 'utf8')
     .then((data) => {
       const contacts = JSON.parse(data);
-      // console.log(contacts);
       for (let i = 0; i < number; i++) {
         contacts.push(createFakeContact());
       }
