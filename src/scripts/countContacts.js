@@ -1,5 +1,5 @@
-import fs from 'fs/promises';
-import { PATH_DB } from '../constants/contacts.js';
+import * as fs from 'node:fs/promises';
+import { PATH_DB } from '../contacts/contacts.js';
 
 export const countContacts = async () => {
   try {
@@ -8,19 +8,8 @@ export const countContacts = async () => {
     return contacts.length;
   } catch (error) {
     console.error('Error counting contacts:', error);
+    throw error;
   }
 };
 
 console.log(await countContacts());
-
-//========================================================
-
-// import fs from 'fs/promises'; // Використовуємо проміс-орієнтовану версію модуля
-// import path from 'path';
-// import { PATH_DB } from '../constants/contacts.js';
-
-// export const countContacts = async () => {
-//   const dbPath = path.resolve(__dirname, '..', PATH_DB);
-//   const contacts = JSON.parse(await fs.readFile(dbPath, 'utf8'));
-//   return contacts.length;
-// };
