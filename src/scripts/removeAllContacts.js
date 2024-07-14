@@ -11,3 +11,13 @@ export const removeAllContacts = async () => {
 };
 
 removeAllContacts();
+
+//========================================================
+// import fs from 'fs/promises'; // Використовуємо проміс-орієнтовану версую модуля
+// import path from 'path';
+// import { PATH_DB } from '../constants/contacts.js';
+
+// export const removeAllContacts = async () => {
+//   const dbPath = path.resolve(__dirname, '..', PATH_DB);
+//   await fs.writeFile(dbPath, JSON.stringify([]), 'utf8'); // Скидуємо всі контакти
+// };

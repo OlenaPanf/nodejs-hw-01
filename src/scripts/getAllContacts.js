@@ -11,3 +11,15 @@ export const getAllContacts = async () => {
 };
 
 console.log(await getAllContacts());
+
+//========================================================
+
+// import fs from 'fs/promises'; // Використовуємо проміс-орієнтовану версую модуля
+// import path from 'path';
+// import { PATH_DB } from '../constants/contacts.js';
+
+// export const getAllContacts = async () => {
+//   const dbPath = path.resolve(__dirname, '..', PATH_DB);
+//   const contacts = JSON.parse(await fs.readFile(dbPath, 'utf8'));
+//   return contacts;
+// };

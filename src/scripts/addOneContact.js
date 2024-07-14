@@ -1,4 +1,4 @@
-import fs from 'fs/promises';
+import * as fs from 'node:fs/promises';
 import { PATH_DB } from '../constants/contacts.js';
 import { createFakeContact } from '../utils/createFakeContact.js';
 
@@ -16,3 +16,11 @@ export const addOneContact = async () => {
 };
 
 addOneContact();
+//===================================
+// export const addOneContact = async () => {
+//   const dbPath = path.resolve(__dirname, '..', PATH_DB);
+//   const contacts = JSON.parse(await fs.readFile(dbPath, 'utf8'));
+//   const newContact = createFakeContact();
+//   contacts.push(newContact);
+//   await fs.writeFile(dbPath, JSON.stringify(contacts), 'utf8');
+// };
