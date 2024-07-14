@@ -1,35 +1,25 @@
-import fs from 'fs/promises';
-import { PATH_DB } from '../constants/contacts.js';
+import * as fs from 'node:fs/promises';
+import { PATH_DB } from '../contacts/contacts.js';
 
 export const removeLastContact = async () => {
   try {
-    const data = await fs.readFile(PATH_DB, 'utf8');
-    const contacts = JSON.parse(data);
+    const data = await fs.readFile(PATH_DB, 'utf8'); // Читаємо вміст файлу
+    let contacts = JSON.parse(data); // Парсуємо отримані дані до масиву
+    // Перевіряємо, чи існує хоча б один елемент у масиві
     if (contacts.length > 0) {
-      const removedContact = contacts.pop();
+      contacts.pop(); // Видаляємо останній контакт
+      // Записуємо змінений масив назад у файл
       await fs.writeFile(PATH_DB, JSON.stringify(contacts, null, 2));
-      console.log('Last contact removed:', removedContact);
+      console.log('Last contact removed');
+      return true; // Повертаємо результат операції
     } else {
-      console.log('No contacts to remove');
+      console.log('No contacts to remove.');
+      return false;
     }
   } catch (error) {
     console.error('Error removing last contact:', error);
+    throw error; // Ви можете вибрати, чи хочете повертати помилку або не робити цього
   }
 };
 
 removeLastContact();
-
-//========================================================
-
-// import fs from 'fs/promises'; // Використовуємо проміс-орієнтовану версую модуля
-// import path from 'path';
-// import { PATH_DB } from '../constants/contacts.js';
-
-// export const removeLastContact = async () => {
-//   const dbPath = path.resolve(__dirname, '..', PATH_DB);
-//   let contacts = JSON.parse(await fs.readFile(dbPath, 'utf8'));
-//   if (contacts.length > 0) {
-//     contacts.pop(); // Видаляємо останній контакт
-//     await fs.writeFile(dbPath, JSON.stringify(contacts), 'utf8');
-//   }
-// };
