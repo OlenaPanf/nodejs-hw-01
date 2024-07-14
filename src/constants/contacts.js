@@ -1,11 +1,21 @@
+//1.
 // import path from 'node:path';
-
 // export const PATH_DB = path.resolve('./src/db/db.json');
 
+//2.
 // import path from 'node:path';
 // const pathToWorkDir = path.join(process.cwd());
 // export const PATH_DB = path.join(pathToWorkDir, 'src', 'db', 'db.json');
 
-export const PATH_DB =
-  'D:\\HomeWorks_GOIT\\Node.js\\nodejs-hw-01\\src\\db\\db.json';
-// D:\HomeWorks_GOIT\Node.js\nodejs-hw-01\src\scripts\addOneContact.js
+//3.
+// export const PATH_DB =
+//   'D:\\HomeWorks_GOIT\\Node.js\\nodejs-hw-01\\src\\db\\db.json';
+
+//4.
+// const PATH_DB = './src/db/db.json';
+// module.exports = { PATH_DB };
+
+//5.
+const path = require('path');
+const dbPath = path.join(__dirname, '..', 'db', 'db.json');
+export const PATH_DB = dbPath;
