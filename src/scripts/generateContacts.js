@@ -11,9 +11,6 @@ const generateContacts = (number) => {
       }
       return fs.writeFile(PATH_DB, JSON.stringify(contacts, null, 2));
     })
-    .then(() => {
-      console.log(`${number} contacts generated`);
-    })
     .catch((error) => {
       console.error('Error generating contacts:', error);
     });
